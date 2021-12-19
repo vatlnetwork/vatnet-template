@@ -1,0 +1,52 @@
+<script>
+    focusEl('new-session-btn')
+    let navOut = `<div class='nav-right-out'>`
+    let navIn = `<div id='login-nav-slide' class='nav-right-in login'>`
+    let navEnd = `</div>`
+    let navLogin = `
+        <br>
+        <div class='nav-close-btn' onclick='toggleNav()'>X</div>
+        <br>
+        <form id='new_user' action='/users/sign_in' accept-charset='UTF-8' method='post' class='form-nav-right'>
+            <input type='email' name='user[email]' id='user_email' class='text-field' placeholder='Email'><br><br>
+            <input type='password' name='user[password]' id='user_password' class='text-field' placeholder='Password'><br><br>
+            <input type='submit' name='commit' value='Log In' data-disable-with='Log In' class='btn-block btn-default'><br><br>
+        </form>
+        <br>
+        <button class='login-form-btn btn-info' onclick='switchSignUp()'>Sign Up</button>
+    `
+    let navSignup = `
+        <br>
+        <div class='nav-close-btn' onclick='toggleNav()'>X</div>
+        <br>
+        <form class='form-nav-right' id='new_user' action='/users' accept-charset='UTF-8' method='post'>
+            <input type='email' name='user[email]' id='user_email' class='text-field' placeholder='Email'><br><br>
+            <input type='password' name='user[password]' id='user_password' class='text-field' placeholder='Password'><br><br>
+            <input type='password' name='user[password_confirmation]' id='user_password_confirmation' class='text-field' placeholder='Confirm Password'><br><br>
+            <input class='btn-block btn-default' type='submit' name='commit' value='Sign Up' data-disable-with='Sign Up'><br><br>
+        </form>
+        <br>
+        <button class='login-form-btn btn-success' onclick='switchLogin()'>Log In</button>
+    `
+
+function toggleNav() {
+    if(document.getElementById('login-nav-slide')) {
+        document.getElementById('login-nav').innerHTML = navOut
+        focusEl('new-session-btn')
+    }
+    else {
+        document.getElementById('login-nav').innerHTML = navIn + navLogin + navEnd
+        focusEl('user_email')
+    }
+}
+
+function switchSignUp() {
+    document.getElementById('login-nav-slide').innerHTML = navSignup
+    focusEl('user_email')
+}
+
+function switchLogin() {
+    document.getElementById('login-nav-slide').innerHTML = navLogin
+    focusEl('user_email')
+}
+</script>

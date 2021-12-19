@@ -1,0 +1,569 @@
+<style>
+    .title-header th {
+        background-color: rgba(200, 200, 200, 0.5);
+        padding: 5px;
+    }
+    .body {
+        background-image: url('/resources/vatlnetwork.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .body td {
+        background-color: white;
+    }
+
+    .body td:hover {
+        background-color: rgba(200, 200, 200, 0.5);
+    }
+    
+    th {
+        color: black;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+
+    .highlighted:hover {
+        background-color: rgba(200, 200, 200, 0.5);
+    }
+
+    .borderless {
+        border: 0px solid white;
+    }
+    
+    .big-tr {
+        font-size: large;
+        font-weight: bold;
+        color: rgba(75, 75, 75);
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .separated-title {
+        border-bottom: 3px solid black;
+    }
+
+    .table-item-border-default td{
+        border-bottom: 3px solid #aaaaaa;
+    }
+
+    .table-header-dark th {
+        text-align: center;
+        padding: 1%;
+        font-weight: bold;
+        user-select: none;
+        background-color: rgba(200, 200, 200, 0.5);
+        border-bottom: 3px solid grey;
+    }
+
+    .tr-link:hover {
+        background-color: rgba(200, 200, 200, 0.5);
+        cursor: pointer;
+    }
+
+    td {
+        text-align: center;
+        user-select: none;
+    }
+
+    .big-rows td {
+        padding: 10px;
+    }
+
+    .search-bar-center {
+        height: 5%;
+        width: 50%;
+        margin: 15% 25%;
+        font-size: large;
+        font-weight: bold;
+        border: 2px solid #aaaaaa;
+        border-radius: 5px;
+        display: inline-block;
+        padding: 10px;
+        color: #aaaaaa;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 0; 
+        position: fixed; 
+        z-index: 100; 
+        top: 0;
+        left: 0;
+        background-color: rgba(100, 100, 100, 0.9);
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s; 
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .openbtn:hover {
+        background-color: #111;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 20px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+    }
+    
+    .sidenav {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .sidenav a, .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        border: none;
+        background: none;
+        width:100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .sidenav a:hover, .dropdown-btn:hover {
+        color: black;
+    }
+
+    .main {
+        margin-left: 200px;
+        font-size: 20px;
+        padding: 0px 10px;
+    }
+
+    .active {
+        color: black;
+    }
+
+    .dropdown-container {
+        display: none;
+        padding-left: 8px;
+    }
+
+    .fa-caret-down {
+        float: right;
+        padding-right: 8px;
+    }
+
+    .navbar-login {
+        width: 100%;
+        height: 6%;
+        background-color: rgb(150, 150, 150, 0.0);
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .navbar-link-left {
+        font-size: large;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        float: left;
+        padding: 5px;
+        margin-right: 1%;
+    }
+
+    .navbar-link-right {
+        font-size: large;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        float: right;
+        padding: 5px;
+        margin-left: 1%;
+    }
+
+    .navbar-btn-right {
+        font-size: large;
+        font-weight: bold;
+        background-color: white;
+        margin: 1% 1%;
+        font-weight: bold;
+        text-decoration: none;
+        opacity: 5;
+        cursor: pointer;
+        float: right;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .no-op {
+        opacity: 1;
+    }
+
+    .large-font {
+        font-size: 25px;
+    }
+
+    .nav-dc {
+        color: #aaaaaa;
+    }
+
+    .red {
+        color: red;
+    }
+
+    .nav-b-dc {
+        background-color: #aaaaaa;
+    }
+
+    .nav-b-red {
+        background-color: red;
+    }
+
+    .nav-close-btn {
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        opacity: 0.5;
+        cursor: pointer;
+        margin: 0.5% 0.5%;
+    }
+
+    .form-nav-right {
+        min-width: 35%;
+        margin: 0% 0.5%;
+        display: inline-block;
+    }
+
+    .login-form-btn {
+        min-height: 5%;
+        min-width: 35%;
+        margin: 0% 0.5%;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        color: black;
+        font-size: large;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        background-color: white;
+    }
+
+    .navpane-btn {
+        min-height: 5%;
+        min-width: 35%;
+        margin: 0% 0.5%;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        color: black;
+        font-size: large;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        background-color: white;
+    }
+
+    .navpane-textfield {
+        min-height: 5%;
+        min-width: 35%;
+        margin: 0% 0.5%;
+        border-radius: 10px;
+        color: black;
+        font-family: Arial, sans-serif;
+        background-color: white;
+    }
+
+    .text-field {
+        min-height: 5%;
+        width: 100%;
+        border-radius: 5px;
+        border: 3px solid #aaaaaa;
+        font-family: Arial, sans-serif;
+        font-size: medium;
+        background-color: white;
+        padding: 10px;
+    }
+
+    .text-field-command {
+        width: 100%;
+        position: fixed;
+        bottom: 0%;
+        left: 0%;
+        height: 4%;
+        border: none;
+        font-family: Arial, sans-serif;
+        font-size: large;
+        background-color: #aaaaaa;
+        color: black;
+        font-weight: bold;
+    }
+
+    .text-field-dflex {
+        min-height: 5%;
+        border-radius: 5px;
+        border: 3px solid #aaaaaa;
+        font-family: Arial, sans-serif;
+        font-size: medium;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+        padding: 10px;
+        background-color: white;
+        font-weight: bold;
+    }
+
+    .btn-block {
+        min-height: 5%;
+        min-width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        display: inline-block;
+        background-color: white;
+    }
+
+    .btn {
+        min-height: 5%;
+        min-width: 10%;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        font-size: large;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .btn-cmpt {
+        min-height: 100%;
+        min-width: 100%;
+        border-radius: 2px;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    .btn-default {
+        border: 2px solid #aaaaaa;
+        color: #aaaaaa;
+    }
+
+    .btn-success {
+        border: 2px solid green;
+        color: green;
+    }
+
+    .btn-warning {
+        border: 2px solid gold;
+        color: gold;
+    }
+
+    .btn-info {
+        border: 2px solid blue;
+        color: blue;
+    }
+
+    .btn-error {
+        border: 2px solid red;
+        color: red;
+    }
+
+    .btn-outline {
+        background-color: white;
+    }
+
+    .card {
+        min-width: 15%;
+        border-radius: 10px;
+        border: 2px solid grey;
+        background-color: white;
+        display: inline-block;
+        cursor: pointer;
+        margin: 1% 1%;
+        padding: 1%;
+    }
+    
+    .login_background {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        user-select: none;
+    }
+
+    .nav-right-in {
+        animation-duration: 0.5s;
+        animation-name: slideinleft;
+        animation-fill-mode: forwards;
+        height: 100%;
+        background-color: rgba(100, 100, 100, 0.3);
+        position: fixed;
+        top: 0%;
+    }
+
+    .login {
+        user-select: none;
+    }
+
+    .nav-right-out {
+        animation-duration: 0.5s;
+        animation-name: slideoutleft;
+        animation-fill-mode: forwards;
+        height: 100%;
+        background-color: rgba(100, 100, 100, 0.3);
+        position: fixed;
+        top: 0%;
+    }
+
+    .nav-bottom-up {
+        animation-duration: 1s;
+        animation-name: slideinbottom;
+        animation-fill-mode: forwards;
+        width: 100%;
+        background-color: rgba(100, 100, 100, 0.9);
+        position: fixed;
+        z-index: 100;
+        left: 0%;
+        top: 0%;
+    }
+
+    .nav-bottom-down {
+        animation-duration: 1s;
+        animation-name: slideoutbottom;
+        animation-fill-mode: forwards;
+        width: 100%;
+        background-color: rgba(100, 100, 100, 0.9);
+        position: fixed;
+        z-index: 100;
+        left: 0%;
+        top: 0%;
+    }
+
+    @keyframes slideinleft {
+        from {
+            margin-left: 100%;
+            width: 300%;
+        }
+        to {
+            margin-left: 60%;
+            width: 100%;
+        }
+    }
+
+    @keyframes slideoutleft {
+        from {
+            margin-left: 60%;
+            width: 100%;
+        }
+        to {
+            margin-left: 100%;
+            width: 300%;
+        }
+    }
+
+    @keyframes slideinbottom {
+        from {
+            margin-top: 100%;
+            height: 300%;
+        }
+        to {
+            margin-top: 45%;
+            height: 100%;
+        }
+    }
+
+    @keyframes slideoutbottom {
+        from {
+            margin-top: 45%;
+            height: 100%;
+        }
+        to {
+            margin-top: 100%;
+            height: 300%;
+        }
+    }
+</style>
+<% if ! user_session.nil?%>
+<% if current_user.background != 'false' %>
+<style>
+    .navbar {
+        width: 100%;
+        height: 6%;
+        border-bottom: 5px solid #aaaaaa;
+        top: 0;
+        left: 0;
+        z-index: 80;
+        background-color: rgba(200, 200, 200, 0.5);
+    }
+</style>
+<% else %>
+<style>
+    .navbar {
+        width: 100%;
+        height: 6%;
+        border-bottom: 5px solid #aaaaaa;
+        top: 0;
+        left: 0;
+        z-index: 80;
+    }
+</style>
+<% end %>
+<% end %>

@@ -1,0 +1,162 @@
+<%= render 'layouts/jqueryjs' %>
+<%= render 'layouts/notifyjs' %>
+<%= render 'layouts/script' %>
+<%= render 'layouts/notifycss' %>
+<%= render 'layouts/styles' %>
+
+<% if @component_create_nav == true %>
+  <%= render 'components/createNav' %>
+<% end %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title %>VATLNetwork</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<!-- Display -->
+
+
+<body>
+<%= render 'layouts/navbar' %>
+<div id='navpane'></div>
+<br>
+<%= yield %>
+<% if notice %>
+  <% if notice['t'] %>
+    <%= render 'layouts/alerts' %>
+  <% else %>
+    <%= render 'layouts/legacy-al' %>
+  <% end %>
+<% end %>
+<% if params[:notice] %>
+  <%= render 'layouts/alertsurl' %>
+<% end %>
+
+<div id='commandbar' class='commandbar'>
+</div>
+</body>
+
+<!-- Display -->
+
+</html>
+
+<script>
+  function openCommandBar() {
+    let commandlineContent = `
+        <input id='commandline' type='text' class='text-field-command' placeholder='Enter a command...'>
+    `
+    focusCommandBar = function() {
+      focusEl('commandline')
+    }
+    updateEl('commandbar', commandlineContent)
+    document.body.addEventListener('keydown', function(event) {
+      focusCommandBar()
+    })
+    document.getElementById('commandbar').addEventListener('keydown', function(event) {
+      if(event.keyCode == 27) {
+        closeCommandBar()
+      }
+      if(event.keyCode == 13) {
+        submitCommand()
+      }
+    })
+    setVal('commandline', '')
+    openCommandBarInit = function() {
+      return
+    }
+  }
+
+  function submitCommand() {
+    let command = getValue('commandline')
+    let commandArray = command.split('')
+    if(commandArray[0] == '/') {
+      let xhr = new XMLHttpRequest
+      xhr.open('GET', command, true)
+      xhr.onload = function() {
+        if(xhr.status == 200) {
+          redirect(command)
+        }
+        else {
+          if(xhr.status == 404) {
+            notification('404', 'Unknown Route!', 'error')
+          }
+          else if(xhr.status == 204) {
+            notification('204', 'Incorrect Response!', 'error')
+          }
+          else {
+            notification('Unknown Error', xhr.status, 'error')
+          }
+        }
+      }
+      xhr.send()
+    }
+    else {
+      commandArray = command.split('::')
+      if(commandArray[0] == 'external') {
+        if(commandArray[1]) {
+          let xhr = new XMLHttpRequest
+          xhr.open('GET', commandArray[1], true)
+          xhr.onload = function() {
+            if(xhr.status == 200) {
+              externalRedirect(commandArray[1])
+            }
+            else {
+              if(xhr.status == 404) {
+                notification('404', 'Not Found!', 'error')
+              }
+              else if(xhr.status == 204) {
+                notification('204', 'Incorrect Response!', 'error')
+              }
+              else {
+                notification('Unknown Error!', xhr.status, 'error')
+              }
+            }
+          }
+          xhr.onerror = function() {
+            notification('Unhandled Network Error!', '', 'error')
+            externalRedirect(commandArray[1])
+          }
+          xhr.send()
+        }
+      }
+    }
+  }
+
+  function closeCommandBar() {
+    let commandlineContent = `
+    `
+    updateEl('commandbar', commandlineContent)
+    focusCommandBar = function() {
+      return
+    }
+    openCommandBarInit = function() {
+      openCommandBar()
+    }
+  }
+
+  function openCommandBarInit() {
+    openCommandBar()
+  }
+
+  function initializeGlobalListeners() {
+    document.body.addEventListener('keydown', function(event) {
+      if(event.keyCode == 191) {
+        openCommandBarInit()
+      }
+      if(event.keyCode == 67) {
+        document.querySelectorAll('.toast').forEach((el) => {
+          el.remove()
+        })
+      }
+    })
+  }
+
+  initializeGlobalListeners()
+</script>

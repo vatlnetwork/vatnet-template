@@ -1,0 +1,299 @@
+=> Booting Puma
+=> Rails 6.1.3.2 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 5.3.2 (ruby 3.0.1-p64) ("Sweetnighter")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 41816
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started GET "/users/sign_in" for ::1 at 2021-05-27 17:12:21 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.3ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 792)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 44.6ms | Allocations: 9354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 2.1ms | Allocations: 646)
+  Rendered layout layouts/application.html.erb (Duration: 84.1ms | Allocations: 18477)
+Completed 200 OK in 135ms (Views: 95.0ms | ActiveRecord: 3.2ms | Allocations: 35181)
+
+
+Started POST "/users
+Posts
+
+New Post
+
+/sign_in" for ::1 at 2021-05-27 17:12:26 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"1529jsg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Completed 401 Unauthorized in 318ms (ActiveRecord: 0.7ms | Allocations: 4137)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"1529jsg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mCACHE DisabledAccount Load (0.0ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mCACHE AdmSetting Load (0.0ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 157)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 844)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4466)
+Completed 200 OK in 311ms (Views: 11.7ms | ActiveRecord: 0.1ms | Allocations: 6446)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-05-27 17:12:35 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"1529jsg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Redirected to http://localhost:3000/
+Completed 302 Found in 361ms (ActiveRecord: 0.7ms | Allocations: 4980)
+
+
+Started GET "/" for ::1 at 2021-05-27 17:12:35 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.3ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 313)
+  Rendered layouts/_alerts.html.erb (Duration: 0.6ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4415)
+Completed 200 OK in 44ms (Views: 17.0ms | ActiveRecord: 2.0ms | Allocations: 11176)
+
+
+Started GET "/" for ::1 at 2021-05-27 17:13:30 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 247)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3620)
+Completed 200 OK in 31ms (Views: 13.4ms | ActiveRecord: 0.9ms | Allocations: 6749)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-27 17:13:34 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 15.3ms | Allocations: 6899)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 10676)
+Completed 200 OK in 33ms (Views: 23.6ms | ActiveRecord: 1.2ms | Allocations: 14660)
+
+
+Started GET "/disabled_accounts" for ::1 at 2021-05-27 17:13:58 -0600
+Processing by DisabledAccountsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mCACHE Admin Load (0.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/disabled_accounts_controller.rb:5:in `check_admin'
+  Rendering layout layouts/application.html.erb
+  Rendering disabled_accounts/index.html.erb within layouts/application
+  [1m[36mDisabledAccount Load (0.3ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts"[0m
+  ↳ app/views/disabled_accounts/index.html.erb:13
+  Rendered disabled_accounts/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1145)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4966)
+Completed 200 OK in 40ms (Views: 19.3ms | ActiveRecord: 1.5ms | Allocations: 9573)
+
+
+Started GET "/disabled_accounts/new" for ::1 at 2021-05-27 17:15:23 -0600
+Processing by DisabledAccountsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mCACHE Admin Load (0.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/disabled_accounts_controller.rb:5:in `check_admin'
+  Rendering layout layouts/application.html.erb
+  Rendering disabled_accounts/new.html.erb within layouts/application
+  Rendered disabled_accounts/_form.html.erb (Duration: 3.8ms | Allocations: 1034)
+  Rendered disabled_accounts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1399)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 232)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 4935)
+Completed 200 OK in 45ms (Views: 17.2ms | ActiveRecord: 1.3ms | Allocations: 10700)
+
+
+Started POST "/disabled_accounts" for ::1 at 2021-05-27 17:15:25 -0600
+Processing by DisabledAccountsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "disabled_account"=>{"email"=>"test@vatlnetwork.net", "user_id"=>""}, "commit"=>"Create Disabled account"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mCACHE Admin Load (0.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/disabled_accounts_controller.rb:5:in `check_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/disabled_accounts_controller.rb:32:in `block in create'
+  [1m[36mDisabledAccount Create (0.7ms)[0m  [1m[32mINSERT INTO "disabled_accounts" ("email", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@vatlnetwork.net"], ["user_id", ""], ["created_at", "2021-05-27 23:15:25.153659"], ["updated_at", "2021-05-27 23:15:25.153659"]]
+  ↳ app/controllers/disabled_accounts_controller.rb:32:in `block in create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/disabled_accounts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/disabled_accounts
+Completed 302 Found in 38ms (ActiveRecord: 3.5ms | Allocations: 8352)
+
+
+Started GET "/disabled_accounts" for ::1 at 2021-05-27 17:15:25 -0600
+Processing by DisabledAccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mCACHE Admin Load (0.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/disabled_accounts_controller.rb:5:in `check_admin'
+  Rendering layout layouts/application.html.erb
+  Rendering disabled_accounts/index.html.erb within layouts/application
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts"[0m
+  ↳ app/views/disabled_accounts/index.html.erb:13
+  Rendered disabled_accounts/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 858)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 233)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 4511)
+Completed 200 OK in 38ms (Views: 18.5ms | ActiveRecord: 0.9ms | Allocations: 7983)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-27 17:15:30 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 866)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 4415)
+Completed 200 OK in 33ms (Views: 15.0ms | ActiveRecord: 0.9ms | Allocations: 7953)
+
+
+Started GET "/todos" for ::1 at 2021-05-27 17:15:31 -0600
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms4" = ? LIMIT ?[0m  [["adms4", 0], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.erb:14
+  Rendered todos/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5009)
+Completed 200 OK in 26ms (Views: 12.4ms | ActiveRecord: 0.9ms | Allocations: 10703)
+
+
+Started GET "/posts" for ::1 at 2021-05-27 17:15:32 -0600
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms4" = ? LIMIT ?[0m  [["adms4", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 268)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 5078)
+Completed 200 OK in 32ms (Views: 19.9ms | ActiveRecord: 0.8ms | Allocations: 10259)
+
+
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2021-05-27 17:46:14 -0600 ===
+- Goodbye!
+Exiting

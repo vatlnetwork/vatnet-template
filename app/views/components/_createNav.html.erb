@@ -1,0 +1,145 @@
+<script>
+let component_sidenav_error = false
+function naverr() {
+    component_sidenav_error = true
+}
+function action_error() {
+    notification('', 'Unable to build component, you must specify an action for the form!', 'error')
+    naverr()
+}
+function method_error() {
+    notification('', 'Unable to build component, you must specify a method for the form!', 'error')
+    naverr()
+}
+function id_error(elType) {
+    notification('', `Unable to build component, you must specify an ID for ${elType}!`, 'error')
+    naverr()
+}
+function element_error() {
+    notification('', 'Unable to build component, you can not build a form without elements!', 'error')
+    naverr()
+}
+function type_error() {
+    notification('', 'Unable to build component, one or more of your elements are missing a type!', 'error')
+    naverr()
+}
+function placeholder_error(elType) {
+    notification('', `Unable to build component, you must specify a placeholder for ${elType}!`, 'error')
+    naverr()
+}
+function options_error() {
+    notification('', 'Unable to build component, you must specify options for your select field!', 'error')
+    naverr()
+}
+function value_error(elType) {
+    notification('', `Unable to build component, you must specify a value for ${elType}!`, 'error')
+    naverr()
+}
+function text_error(elType) {
+    notification('', `Unable to build component, you must specify text for ${elType}!`, 'error')
+    naverr()
+}
+function class_error(elType) {
+    notification('', `Unable to build component, you must specify a class for ${elType}!`, 'error')
+    naverr()
+}
+function onclick_error() {
+    notification('', `Unable to build component, you must specify an onclick for button!`, 'error')
+    naverr()
+}
+function props_error() {
+    notification('', 'Unable to build component, no props!', 'error')
+    naverr()
+}
+function component_createNav(props) {
+    let sidenav = ''
+    if(props) {
+        sidenav = sidenav + `<div class='nav-right-in'>`
+        sidenav = sidenav + `<div class='nav-close-btn' onclick='navpane("close")'>X</div>`
+        if(props.form) {
+            if(!props.form.action) {action_error()}
+            else if(!props.form.method) {method_error()}
+            else if(!props.form.id) {id_error('form')}
+            else if(!props.form.elements) {element_error()}
+            else {
+                sidenav = sidenav + `<form id='${props.form.id}' class='form-nav-right' action='${props.form.action}' method='${props.form.method}'>`
+                props.form.elements.forEach((el) => {
+                    if(!el.type) {type_error()}
+                    else if(el.type == 'text') {
+                        if(!el.id) {id_error('text field')}
+                        else if(!el.placeholder) {placeholder_error('text field')}
+                        else {sidenav = sidenav + `<br><br><input class='text-field' type='text' id='${el.id}' name='${el.id}' placeholder='${el.placeholder}'>`}
+                    }
+                    else if(el.type == 'select') {
+                        if(!el.id) {id_error('select field')}
+                        else if(!el.options) {options_error()}
+                        else {
+                            sidenav = sidenav + `<br><br><select class='text-field' id='${el.id}' name='${el.id}'>`
+                            el.options.forEach((opt) => {
+                                if(!opt.value) {value_error('select option')}
+                                else if(!opt.text) {text_error('select option')}
+                                else {sidenav = sidenav + `<option value='${opt.value}'>${opt.text}</option>`}
+                            })
+                            sidenav = sidenav + `</select>`
+                        }
+                    }
+                    else if(el.type == 'submit') {
+                        if(!el.class) {class_error('submit button')}
+                        else if(!el.value) {value_error('submit button')}
+                        else {sidenav = sidenav + `<br><br><input type='submit' class='btn-block btn-${el.class}' value='${el.value}'>`}
+                    }
+                    else if(el.type == 'textarea') {
+                        if(!el.id) {id_error('textarea')}
+                        else if(!el.placeholder) {placeholder_error('textarea')}
+                        else {sidenav = sidenav + `<br><br><textarea id='${el.id}' name='${el.id}' placeholder='${el.placeholder}' class='text-field'></textarea>`}
+                    }
+                })
+                sidenav = sidenav + `</form>`
+            }
+        }
+        if(props.elements) {
+            props.elements.forEach((el) => {
+                if(!el.type) {type_error()}
+                if(el.type == 'button') {
+                    if(!el.class) {class_error('button')}
+                    else if(!el.onclick) {onclick_error()}
+                    else if(!el.value) {value_error('button')}
+                    else {sidenav = sidenav + `<br><br><button class='navpane-btn btn-${el.class}' onclick='${el.onclick}'>${el.value}</button>`}
+                }
+                else if(el.type == 'text') {
+                    if(!el.id) {id_error('text field')}
+                    else if(!el.placeholder) {placeholder_error('text field')}
+                    else {sidenav = sidenav + `<br><br><input type='text' id='${el.id}' name='${el.id}' placeholder='${el.placeholder}' class='navpane-textfield'>`}
+                }
+                else if(el.type == 'select') {
+                    if(!el.id) {id_error('select field')}
+                    else if(!el.options) {options_error()}
+                    else {
+                        sidenav = sidenav + `<br><br><select id='${el.id}' class='navpane-textfield'>`
+                        el.options.forEach((opt) => {
+                            if(!opt.text) {text_error('select option')}
+                            else if(!opt.value) {value_error('select option')}
+                            else {sidenav = sidenav + `<option value='${opt.value}'>${opt.text}</option>`}
+                        })
+                        sidenav = sidenav + `</select>`
+                    }
+                }
+                else if(el.type == 'textarea') {
+                    if(!el.id) {id_error('textarea')}
+                    else if(!el.placeholder) {placeholder_error('textarea')}
+                    else {sidenav = sidenav + `<br><br><textarea id='${el.id}' name='${el.id}' placeholder='${el.placeholder}' class='navpane-textfield'></textarea>`}
+                }
+            })
+        }
+        sidenav = sidenav + `</div>`
+        if(component_sidenav_error == false) {updateEl('navpane', sidenav)}
+        if(props.autofocus) {focusEl(props.autofocus)}
+        document.getElementById('navpane').addEventListener('keydown', function(event) {
+            if(event.keyCode == 27) {
+                navpane('close')
+            }
+        })
+    }
+    else {props_error()}
+}
+</script>

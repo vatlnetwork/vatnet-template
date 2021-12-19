@@ -1,0 +1,80 @@
+<% @page_title = 'User Profile | ' %>
+<table>
+  <thead class='table-header-dark'>
+    <tr>
+      <th>Email</th>
+      <th>Perm Level</th>
+      <th>Status</th>
+      <th>Username</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class='table-item-border-default'>
+      <td><%= current_user.email %></td>
+      <td><%= current_user.perm %></td>
+      <td><%= current_user.status %></td>
+      <td><input type='text' class='text-field' id='username' placeholder='Username' value='<%= current_user.username %>'></td>
+      <td><button class='btn btn-success' onclick='updateUsername()'>Change Username</button></td>
+    </tr>
+  </tbody>
+</table>
+<h2 style='text-align:center'>Password</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<br>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder:'Password', class:'text-field' %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'Confirm Password', class:'text-field' %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder:'Current Password', class:'text-field' %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit "Change Password", class:'btn-block btn-success' %>
+  </div>
+<% end %>
+<button onclick='removeAccount()' class='btn-block btn-error'>Delete Account</button>
+<br><br>
+<button class='btn btn-info'><%= link_to "Back", :back %></button>
+
+<script>
+  function removeAccount() {
+    if(window.confirm('Your account and all of it\'s data are going to be removed. Do you wish to continue?')) {
+      let url = window.location.origin + '/destroy/user'
+      api('post', url)
+      window.location.replace(`${window.location.origin}/users/sign_out`)
+    }
+    else {
+      notification('Successfully Cancled!', '', 'success')
+    }
+  }
+
+  function updateUsername() {
+    let username = getValue('username')
+    vatnet({
+      url: '/update/username',
+      method: 'post',
+      urlParams: [
+        {
+          key: 'username',
+          value: username
+        }
+      ]
+    })
+    notification('Username updated!', '', 'success')
+  }
+</script>

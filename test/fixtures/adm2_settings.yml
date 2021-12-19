@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  adms1: false
+  adms2: false
+  adms3: false
+  adms4: false
+  adms5: false
+  adms6: false
+  adms7: false
+  adms8: false
+  adms9: false
+  adms10: false
+
+two:
+  adms1: false
+  adms2: false
+  adms3: false
+  adms4: false
+  adms5: false
+  adms6: false
+  adms7: false
+  adms8: false
+  adms9: false
+  adms10: false

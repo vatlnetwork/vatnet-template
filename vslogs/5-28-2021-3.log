@@ -1,0 +1,607 @@
+=> Booting Puma
+=> Rails 6.1.3.2 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 5.3.2 (ruby 3.0.1-p64) ("Sweetnighter")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 7257
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started GET "/users/sign_in" for ::1 at 2021-05-28 10:19:05 -0600
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 708)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 7504)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 646)
+  Rendered layout layouts/application.html.erb (Duration: 38.1ms | Allocations: 16585)
+Completed 200 OK in 99ms (Views: 57.7ms | ActiveRecord: 2.0ms | Allocations: 32287)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-05-28 10:20:40 -0600
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 157)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 873)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 157)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 4482)
+Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 0.3ms | Allocations: 6775)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-05-28 10:21:36 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"vatlnetwork@vatlnetwork.net", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.3ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Redirected to http://localhost:3000/
+Completed 302 Found in 405ms (ActiveRecord: 1.0ms | Allocations: 8630)
+
+
+Started GET "/" for ::1 at 2021-05-28 10:21:37 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 313)
+  Rendered layouts/_alerts.html.erb (Duration: 0.7ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4414)
+Completed 200 OK in 33ms (Views: 13.8ms | ActiveRecord: 1.6ms | Allocations: 11176)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:23:21 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.3ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 24.9ms | Allocations: 6899)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 10700)
+Completed 200 OK in 48ms (Views: 33.7ms | ActiveRecord: 1.3ms | Allocations: 14690)
+
+
+Started GET "/admins" for ::1 at 2021-05-28 10:23:23 -0600
+Processing by AdminsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mCACHE Admin Load (0.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:5:in `check_admin'
+  Rendering layout layouts/application.html.erb
+  Rendering admins/index.html.erb within layouts/application
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  ↳ app/views/admins/index.html.erb:13
+  Rendered admins/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1686)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 5504)
+Completed 200 OK in 44ms (Views: 25.2ms | ActiveRecord: 1.1ms | Allocations: 10090)
+
+
+Started GET "/home/index" for ::1 at 2021-05-28 10:23:30 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 247)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 3602)
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 0.7ms | Allocations: 6631)
+
+
+Started GET "/home/about" for ::1 at 2021-05-28 10:23:31 -0600
+Processing by HomeController#about as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:12:in `about'
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms2" = ? LIMIT ?[0m  [["adms2", 0], ["LIMIT", 1]]
+  ↳ app/views/home/about.html.erb:1
+  Rendered home/about.html.erb within layouts/application (Duration: 3.1ms | Allocations: 946)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 247)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4510)
+Completed 200 OK in 20ms (Views: 9.4ms | ActiveRecord: 0.9ms | Allocations: 7540)
+
+
+Started GET "/settings/index" for ::1 at 2021-05-28 10:23:32 -0600
+Processing by SettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.7ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms3" = ? LIMIT ?[0m  [["adms3", 0], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3:in `index'
+Redirected to http://localhost:3000/admin_settings/index
+Completed 302 Found in 13ms (ActiveRecord: 1.2ms | Allocations: 3763)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:23:32 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 893)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 234)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4678)
+Completed 200 OK in 18ms (Views: 10.6ms | ActiveRecord: 0.6ms | Allocations: 7683)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:23:32 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.3ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4413)
+Completed 200 OK in 31ms (Views: 15.1ms | ActiveRecord: 1.1ms | Allocations: 7362)
+
+
+Started GET "/posts" for ::1 at 2021-05-28 10:23:34 -0600
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms5" = ? LIMIT ?[0m  [["adms5", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 7569)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 11292)
+Completed 200 OK in 40ms (Views: 25.0ms | ActiveRecord: 1.7ms | Allocations: 17014)
+
+
+Started GET "/posts" for ::1 at 2021-05-28 10:23:43 -0600
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.3ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms5" = ? LIMIT ?[0m  [["adms5", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1590)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 234)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5141)
+Completed 200 OK in 43ms (Views: 25.8ms | ActiveRecord: 1.3ms | Allocations: 8727)
+
+
+Started GET "/posts/new" for ::1 at 2021-05-28 10:23:49 -0600
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms5" = ? LIMIT ?[0m  [["adms5", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.1ms | Allocations: 1180)
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1590)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 5254)
+Completed 200 OK in 40ms (Views: 16.8ms | ActiveRecord: 0.7ms | Allocations: 10677)
+
+
+Started POST "/posts" for ::1 at 2021-05-28 10:23:52 -0600
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"", "body"=>"bruh", "user_id"=>"6"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms5" = ? LIMIT ?[0m  [["adms5", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `check_status'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:36:in `block in create'
+  [1m[36mPost Create (4.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", ""], ["body", "bruh"], ["created_at", "2021-05-28 16:23:52.842774"], ["updated_at", "2021-05-28 16:23:52.842774"], ["user_id", 6]]
+  ↳ app/controllers/posts_controller.rb:36:in `block in create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:36:in `block in create'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 35ms (ActiveRecord: 8.1ms | Allocations: 6669)
+
+
+Started GET "/posts" for ::1 at 2021-05-28 10:23:52 -0600
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.3ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.3ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms5" = ? LIMIT ?[0m  [["adms5", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2454)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 233)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 6124)
+Completed 200 OK in 39ms (Views: 21.8ms | ActiveRecord: 1.7ms | Allocations: 9634)
+
+
+Started GET "/todos" for ::1 at 2021-05-28 10:25:35 -0600
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.4ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms4" = ? LIMIT ?[0m  [["adms4", 0], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7:in `check_status'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.erb:14
+  Rendered todos/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1229)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 5008)
+Completed 200 OK in 45ms (Views: 20.5ms | ActiveRecord: 2.1ms | Allocations: 10364)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:25:36 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 879)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4428)
+Completed 200 OK in 30ms (Views: 16.2ms | ActiveRecord: 1.0ms | Allocations: 7526)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:25:58 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4413)
+Completed 200 OK in 22ms (Views: 12.6ms | ActiveRecord: 0.7ms | Allocations: 7359)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-05-28 10:26:06 -0600
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "vatlnetwork@vatlnetwork.net"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms (ActiveRecord: 0.5ms | Allocations: 5828)
+
+
+Started GET "/" for ::1 at 2021-05-28 10:26:07 -0600
+Processing by HomeController#index as HTML
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Redirected to http://localhost:3000/users/sign_in
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 2508)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-05-28 10:26:07 -0600
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 157)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 858)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 156)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 46)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4564)
+Completed 200 OK in 17ms (Views: 10.4ms | ActiveRecord: 0.3ms | Allocations: 6596)
+
+
+Started GET "/" for ::1 at 2021-05-28 10:27:55 -0600
+Processing by HomeController#index as HTML
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.3ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Redirected to http://localhost:3000/users/sign_in
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+Completed 302 Found in 15ms (ActiveRecord: 0.6ms | Allocations: 2291)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-05-28 10:27:55 -0600
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 768)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 156)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 4252)
+Completed 200 OK in 31ms (Views: 14.8ms | ActiveRecord: 0.4ms | Allocations: 6222)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-05-28 10:27:56 -0600
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 768)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 156)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4252)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.3ms | Allocations: 6222)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-05-28 10:28:14 -0600
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 768)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 157)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 4257)
+Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 0.3ms | Allocations: 6230)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-05-28 10:28:31 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"1529jsg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+Redirected to http://localhost:3000/
+Completed 302 Found in 326ms (ActiveRecord: 0.8ms | Allocations: 3231)
+
+
+Started GET "/" for ::1 at 2021-05-28 10:28:31 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.2ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 248)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3726)
+Completed 200 OK in 26ms (Views: 12.5ms | ActiveRecord: 0.7ms | Allocations: 6624)
+
+
+Started GET "/settings/index" for ::1 at 2021-05-28 10:31:08 -0600
+Processing by SettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms3" = ? LIMIT ?[0m  [["adms3", 0], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3:in `index'
+Redirected to http://localhost:3000/admin_settings/index
+Completed 302 Found in 12ms (ActiveRecord: 0.7ms | Allocations: 3288)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:31:08 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 876)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 233)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4538)
+Completed 200 OK in 18ms (Views: 10.1ms | ActiveRecord: 0.6ms | Allocations: 7502)
+
+
+Started GET "/admin_settings/index" for ::1 at 2021-05-28 10:31:20 -0600
+Processing by AdminSettingsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mDisabledAccount Load (0.1ms)[0m  [1m[34mSELECT "disabled_accounts".* FROM "disabled_accounts" WHERE "disabled_accounts"."email" = ? LIMIT ?[0m  [["email", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `validate_login'
+  [1m[36mAdmSetting Load (0.1ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings" WHERE "adm_settings"."adms1" = ? LIMIT ?[0m  [["adms1", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `validate_login'
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."admin" = ? LIMIT ?[0m  [["admin", "1529jsg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:21:in `validate_login'
+  Rendering layout layouts/application.html.erb
+  Rendering admin_settings/index.html.erb within layouts/application
+  [1m[36mAdmSetting Load (0.2ms)[0m  [1m[34mSELECT "adm_settings".* FROM "adm_settings"[0m
+  ↳ app/views/admin_settings/index.html.erb:32
+  Rendered admin_settings/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4416)
+Completed 200 OK in 24ms (Views: 12.3ms | ActiveRecord: 1.0ms | Allocations: 7362)
+
+
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2021-05-28 10:32:43 -0600 ===
+- Goodbye!
+Exiting

@@ -1,0 +1,50 @@
+<% if user_session.nil? %>
+<div class='navbar-login'>
+    <button id='new-session-btn' class='navbar-btn-right btn-default no-op' onclick='toggleNav()'>Log In | Sign Up</button>
+</div>
+<% else %>
+<div class='navbar'>
+    <!-- Left side of the navbar -->
+    <div class='navbar-link-left' style='color:black' onclick='openNav()'>Menu</div>
+    <div class='navbar-link-left' style='color:black' onclick='window.location.replace(window.location.origin)'>Home</div>
+    
+    <!-- Right side of the navbar -->
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :get, class:'navbar-link-right', style:'color:red' %>
+    <%= link_to 'User Profile', '/users/edit', class:'navbar-link-right', style:'color:black' %>
+</div>
+<% end %>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- SIDE MENU -->
+    <button class='dropdown-btn'>No Menu Items Specified</button>
+    <div class='dropdown-container'>
+      <a href='#'>No Menu Items Specified</a>
+    </div>
+
+</div>
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+}
+</script>

@@ -1,0 +1,191 @@
+<script>
+console.clear()
+
+function safestring(string) {
+    let results = string
+    results = results.replaceAll('&lt;', '<')
+    results = results.replaceAll('&gt;', '>')
+    results = results.replaceAll('\\', '')
+    results = results.replaceAll('&quot;', '')
+    return results
+}
+
+window.onerror = function(error, url, line) {
+    console.clear()
+    notification(error, url + '\n' + line, 'error')
+}
+
+console.error = function(error) {
+    console.clear()
+    notification('Unhandled Error!', error, 'error')
+}
+
+console.log = function(log) {
+    console.clear()
+    notification('Console Log', log, 'info')
+}
+
+function addNavListeners(navName, focusElement) {
+    document.body.addEventListener('keydown', function(event) {
+        if(event.keyCode == 187 || event.keyCode == 107) {
+            if(document.querySelectorAll('.nav-right-in')[0]) {
+                return
+            }
+            else {
+                navpane(navName)
+                document.body.addEventListener('keydown', function(event) {
+                    if(document.querySelectorAll('.nav-right-in')[0]) {
+                        focusEl(focusElement)
+                    }
+                })
+            }
+        }
+    })
+}
+
+function enableInput(elId) {
+    document.getElementById(elId).disabled = false
+}
+
+function disableInput(elId) {
+    document.getElementById(elId).disabled = true
+}
+
+function getUrlParams(param) {
+    return (new URLSearchParams(window.location.search).get(param))
+}
+
+function convertToPassword(elId) {
+    document.getElementById(elId).type = 'password'
+}
+
+function convertToText(elId) {
+    document.getElementById(elId).type = 'text'
+}
+
+function getInputType(elId) {
+    return document.getElementById(elId).type
+}
+
+function searchParam(parameter) {
+    return (new URLSearchParams(window.location.search)).get(parameter)
+}
+
+function api(method, url) {
+    let xhr = new XMLHttpRequest
+    xhr.open(method.toUpperCase(), url, true)
+    xhr.send()
+}
+
+function vatnet(params) {
+    let xhrParams = ''
+    params.urlParams.forEach((p) => {
+        let content = `${p.key}=${p.value}&`
+        xhrParams = xhrParams + content
+    })
+    let xhr = new XMLHttpRequest
+    xhr.open(params.method.toUpperCase(), params.url, true)
+    xhr.setRequestHeader(rh1(), rh2())
+    xhr.send(xhrParams)
+}
+
+function focusEl(elId) {
+    document.getElementById(elId).focus()
+}
+
+function select(elId) {
+    document.getElementById(elId).setSelectionRange(0, document.getElementById(elId).value.length)
+}
+
+function updateEl(elId, content) {
+    document.getElementById(elId).innerHTML = content
+}
+
+function setVal(elId, value) {
+    document.getElementById(elId).value = value
+}
+
+function selectOnClick(elId) {
+    document.getElementById(elId).onclick = function() {
+        select(elId)
+    }
+}
+
+function redirect(url) {
+    window.location.replace(`${window.location.origin}${url}`)
+}
+
+function appendRedirect(params) {
+    window.location.replace(`${window.location.href}${params}`)
+}
+
+function fullRedirect(url) {
+    window.location.replace(url)
+}
+
+function externalRedirect(url) {
+    window.open(url)
+}
+
+function getValue(valueId) {
+    return document.getElementById(valueId).value.toString()
+}
+
+function getEl(elId) {
+    return document.getElementById(elId).innerHTML.toString()
+}
+
+function getText(elId) {
+    var e = document.getElementById(elId)
+    var text = e.options[e.selectedIndex].text
+    return text.toString()
+}
+
+function rh1() {
+    return 'Content-type'
+}
+
+function rh2() {
+    return 'application/x-www-form-urlencoded'
+}
+
+function removeEl(elId) {
+    document.getElementById(elId).remove()
+}
+
+function disableEl(elId) {
+    document.getElementById(elId).disabled = true
+}
+
+function enableEl(elId) {
+    document.getElementById(elId).disabled = false
+}
+
+function vatnetRead(params) {
+    let xhr = new XMLHttpRequest
+    xhr.open('GET', params.url)
+    xhr.responseType = 'text'
+    xhr.onload = params.onload
+    xhr.send()
+}
+
+function navpane(component, props = {}) {
+    if(component == 'newProject') {new_project()}
+    else if(component == 'newProjectTask') {new_project_task()}
+    else if(component == 'newClass') {new_class()}
+    else if(component == 'newNote') {new_note()}
+    else if(component == 'newPlannerTask') {new_planner_task()}
+    else if(component == 'editPlannerTask') {edit_planner_task()}
+    else if(component == 'newClassroom') {new_classroom()}
+    else if(component == 'joinClassroom') {join_classroom()}
+    else if(component == 'empty') {component_createNav('empty')}
+    else if(component == 'close') {document.getElementById('navpane').innerHTML = `<div class='nav-right-out'></div>`}
+    else {component_createNav('empty')}
+}
+
+function removeElClass(elId) {
+    document.querySelectorAll(elId).forEach((el) => {
+        removeEl(el.id)
+    })
+}
+</script>

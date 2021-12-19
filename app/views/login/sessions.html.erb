@@ -1,0 +1,23 @@
+<div id='main'>
+
+<img id='login_background' class='login_background' src='/resources/login_background.jpg'>
+
+<!-- video id='login_background' class='login_background' autoplay loop>
+    <source src='/resources/login_background.mp4'>
+</video -->
+
+<div id='login-nav'>
+</div>
+
+<%# render 'login/backgroundvideo' %>
+<%= render 'login/script' %>
+
+</div>
+
+<script>
+    window.onload = function() { document.querySelectorAll('.toast').forEach((el) => {
+        el.onclick = function() {
+            toggleNav()
+        }
+    })}
+</script>
