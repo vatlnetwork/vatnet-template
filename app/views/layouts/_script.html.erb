@@ -170,15 +170,7 @@ function vatnetRead(params) {
 }
 
 function navpane(component, props = {}) {
-    if(component == 'newProject') {new_project()}
-    else if(component == 'newProjectTask') {new_project_task()}
-    else if(component == 'newClass') {new_class()}
-    else if(component == 'newNote') {new_note()}
-    else if(component == 'newPlannerTask') {new_planner_task()}
-    else if(component == 'editPlannerTask') {edit_planner_task()}
-    else if(component == 'newClassroom') {new_classroom()}
-    else if(component == 'joinClassroom') {join_classroom()}
-    else if(component == 'empty') {component_createNav('empty')}
+    if(component == 'empty') {component_createNav('empty')}
     else if(component == 'close') {document.getElementById('navpane').innerHTML = `<div class='nav-right-out'></div>`}
     else {component_createNav('empty')}
 }
