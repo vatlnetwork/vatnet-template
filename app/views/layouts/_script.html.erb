@@ -35,7 +35,9 @@ function addNavListeners(navName, focusElement) {
                 navpane(navName)
                 document.body.addEventListener('keydown', function(event) {
                     if(document.querySelectorAll('.nav-right-in')[0]) {
-                        focusEl(focusElement)
+                        if(getValue(focusElement).length == 0) {
+                            focusEl(focusElement)
+                        }
                     }
                 })
             }
